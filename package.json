@@ -1,0 +1,1 @@
+{"name":"grupo5-facturacion","private":true,"type":"module","workspaces":["app_web_crm_node_api","app_web_crm_react_cliente","app_web_crm_react_adm_emp"],"scripts":{"build":"npm run build --workspace app_web_crm_react_cliente && npm run build --workspace app_web_crm_react_adm_emp","test":"npm test --workspace app_web_crm_node_api"}}
