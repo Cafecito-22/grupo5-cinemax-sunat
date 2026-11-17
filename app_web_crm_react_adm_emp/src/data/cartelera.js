@@ -51,7 +51,7 @@ export const carteleraOriginal=[
     "duracion": 118,
     "clasificacion": "+14",
     "sala": "Sala 1",
-    "estado": "proximamente",
+    "estado": "cartelera",
     "poster_local": "/img/im5.jpg"
   },
   {
@@ -62,7 +62,7 @@ export const carteleraOriginal=[
     "duracion": 132,
     "clasificacion": "+14",
     "sala": "Sala 2",
-    "estado": "proximamente",
+    "estado": "cartelera",
     "poster_local": "/img/im6.jpg"
   },
   {
@@ -73,7 +73,7 @@ export const carteleraOriginal=[
     "duracion": 95,
     "clasificacion": "Todo público",
     "sala": "Sala 3",
-    "estado": "proximamente",
+    "estado": "cartelera",
     "poster_local": "/img/im7.jpg"
   },
   {
@@ -84,7 +84,7 @@ export const carteleraOriginal=[
     "duracion": 110,
     "clasificacion": "+18",
     "sala": "Sala 4",
-    "estado": "proximamente",
+    "estado": "cartelera",
     "poster_local": "/img/im8.jpg"
   }
 ];
