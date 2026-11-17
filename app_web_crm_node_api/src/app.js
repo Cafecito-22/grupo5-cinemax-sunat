@@ -1,0 +1,10 @@
+import express from 'express';
+import cors from 'cors';
+import helmet from 'helmet';
+import {router} from './routes/api.routes.js';
+import {errorHandler} from './middlewares/errorHandler.js';
+export const app=express();
+app.disable('x-powered-by');app.set('trust proxy',1);app.use(helmet());
+const origins=(process.env.FRONTEND_ORIGINS||'').split(',');
+app.use(cors({origin:(origin,cb)=>cb(null,!origin||origins.includes(origin)),methods:['GET','POST','PUT','PATCH','DELETE'],allowedHeaders:['Content-Type','Authorization']}));
+app.use(express.json({limit:'32kb'}));app.use('/api',router);app.use((req,res)=>res.status(404).json({error:'Ruta no encontrada.'}));app.use(errorHandler);
