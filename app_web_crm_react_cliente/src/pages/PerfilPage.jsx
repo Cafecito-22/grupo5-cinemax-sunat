@@ -1,0 +1,6 @@
+import React,{useState,useContext} from 'react';
+import {Auth} from '../context/AuthContext.jsx';
+import {api,setToken} from '../api/client.js';
+import {Message} from '../components/Mensaje.jsx';
+import {Field} from '../components/Campo.jsx';
+export function Perfil(){const {user,setUser}=useContext(Auth);const [form,setForm]=useState({correo:user.correo,actual:'',nueva:''});const [error,setError]=useState('');const [busy,setBusy]=useState(false);return <section className="seccion contenedor"><h2>Mi perfil</h2><p>{user.nombre}</p>{user.turno_inicio&&<p>{user.turno_nombre} · {user.turno_inicio.slice(0,5)} – {user.turno_fin.slice(0,5)} · Hora de Perú</p>}<Message error={error}/><form className="panel" onSubmit={async e=>{e.preventDefault();setBusy(true);try{await api('/cine/perfil','PUT',form);setToken(null);setUser(null);}catch(e){setError(e.message);}finally{setBusy(false);}}}>{[['Correo electrónico','correo','email'],['Contraseña actual','actual','password'],['Nueva contraseña (opcional)','nueva','password']].map(([label,name,type])=><Field key={name} label={label} name={name} type={type} required={name!=='nueva'} value={form[name]} onChange={e=>setForm({...form,[name]:e.target.value})}/>)}<button className="btn btn-primary" disabled={busy}>{busy?'Guardando…':'Guardar y volver a iniciar sesión'}</button></form></section>;}
