@@ -1,0 +1,3 @@
+import {test} from 'node:test';import assert from 'node:assert/strict';import {dentroTurno} from './turnos.js';
+test('turnos diurnos respetan hora de Perú y fin exclusivo',()=>{assert.equal(dentroTurno('08:00','16:00',new Date('2026-11-16T13:00:00Z')),true);assert.equal(dentroTurno('08:00','16:00',new Date('2026-11-16T21:00:00Z')),false);});
+test('turnos nocturnos cruzan medianoche',()=>{assert.equal(dentroTurno('22:00','06:00',new Date('2026-11-17T07:00:00Z')),true);assert.equal(dentroTurno('22:00','06:00',new Date('2026-11-17T17:00:00Z')),false);assert.equal(dentroTurno(null,null),false);});
