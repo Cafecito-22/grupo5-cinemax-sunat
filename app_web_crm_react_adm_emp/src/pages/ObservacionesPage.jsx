@@ -1,0 +1,10 @@
+import React,{useState,useEffect,useContext} from 'react';
+import {BrowserRouter,Routes,Route,NavLink,Navigate,useNavigate} from 'react-router-dom';
+import {api} from '../api/client.js';
+import {date} from '../utils/formato.js';
+import {Auth,allowed} from '../context/AuthContext.jsx';
+import {Message} from '../components/Mensaje.jsx';
+import {Loading} from '../components/Cargando.jsx';
+import {Title} from '../components/Titulo.jsx';
+import {useLoad} from '../hooks/useLoad.jsx';
+export function Observaciones(){const {user}=useContext(Auth);const staff=allowed(user,'sunat','empleado','administrador');const state=useLoad('/observaciones');const contrib=useLoad('/solicitudes');const [id,setId]=useState('');const [detalle,setDetalle]=useState('');const [error,setError]=useState('');const [busy,setBusy]=useState(false);return <><Title app="SUNAT" title="Observaciones"/><Message error={error}/>{staff&&<form className="panel" onSubmit={async e=>{e.preventDefault();setBusy(true);setError('');try{await api('/observaciones','POST',{id_clave_sol:Number(id),detalle});setDetalle('');state.reload();}catch(e){setError(e.message);}finally{setBusy(false);}}}><label className="form-label" htmlFor="contribuyente">Contribuyente</label><select id="contribuyente" required className="form-select mb-3" value={id} onChange={e=>setId(e.target.value)}><option value="">Selecciona un contribuyente</option>{contrib.data?.map(s=><option key={s.id} value={s.id}>{s.razon_social} · SOL-{s.id}</option>)}</select><label className="form-label" htmlFor="detalle">Observación</label><textarea id="detalle" required minLength={5} maxLength={2000} className="form-control mb-3" value={detalle} onChange={e=>setDetalle(e.target.value)}/><button disabled={busy} className="btn btn-primary">{busy?'Guardando…':'Registrar observación'}</button></form>}<Loading state={state}>{data=><div className="panel">{data.map(o=><article className="ticket" key={o.id}><strong>{o.razon_social}</strong><p className="mt-2">{o.detalle}</p><small className="subtitle">{date(o.fecha)}</small></article>)}{!data.length&&<div className="empty">No hay observaciones registradas.</div>}</div>}</Loading></>;}
