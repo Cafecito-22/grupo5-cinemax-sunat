@@ -7,6 +7,43 @@
   },
   "item": [
     {
+      "name": "28 · Login de jefatura",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{base_url}}/auth/login",
+        "auth": {
+          "type": "noauth"
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\"correo\": \"{{jefatura_correo}}\", \"password\": \"{{jefatura_password}}\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('HTTP 200',()=>pm.response.to.have.status(200));",
+              "const d=pm.response.json();pm.environment.set('jefatura_token',d.token);pm.environment.set('jefatura_id',d.user.id);"
+            ]
+          }
+        }
+      ]
+    },
+    {
       "name": "01 · Salud de API y base de datos",
       "request": {
         "method": "GET",
@@ -557,7 +594,7 @@
           "bearer": [
             {
               "key": "token",
-              "value": "{{cliente_token}}",
+              "value": "{{jefatura_token}}",
               "type": "string"
             }
           ]
@@ -1006,7 +1043,7 @@
           "bearer": [
             {
               "key": "token",
-              "value": "{{cliente_token}}",
+              "value": "{{jefatura_token}}",
               "type": "string"
             }
           ]
@@ -1055,43 +1092,6 @@
             "exec": [
               "pm.test('HTTP 403',()=>pm.response.to.have.status(403));",
               ""
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "name": "28 · Login de jefatura",
-      "request": {
-        "method": "POST",
-        "header": [
-          {
-            "key": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "url": "{{base_url}}/auth/login",
-        "auth": {
-          "type": "noauth"
-        },
-        "body": {
-          "mode": "raw",
-          "raw": "{\"correo\": \"{{jefatura_correo}}\", \"password\": \"{{jefatura_password}}\"}",
-          "options": {
-            "raw": {
-              "language": "json"
-            }
-          }
-        }
-      },
-      "event": [
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "pm.test('HTTP 200',()=>pm.response.to.have.status(200));",
-              "const d=pm.response.json();pm.environment.set('jefatura_token',d.token);pm.environment.set('jefatura_id',d.user.id);"
             ]
           }
         }
@@ -1476,7 +1476,7 @@
           "bearer": [
             {
               "key": "token",
-              "value": "{{emisor_token}}",
+              "value": "{{jefatura_token}}",
               "type": "string"
             }
           ]

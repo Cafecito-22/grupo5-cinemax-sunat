@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS usuario_rol (
 CREATE TABLE IF NOT EXISTS solicitudes_clave_sol (
  id SERIAL PRIMARY KEY, id_usuario INT NOT NULL REFERENCES usuarios(id),
  razon_social TEXT NOT NULL, ruc VARCHAR(11) NOT NULL CHECK(ruc ~ '^[0-9]{11}$'),
- representante TEXT NOT NULL, correo TEXT NOT NULL,
+ representante TEXT NOT NULL, correo TEXT NOT NULL, descripcion VARCHAR(2000) NOT NULL DEFAULT '',
  estado TEXT NOT NULL DEFAULT 'registrado' CHECK(estado IN ('registrado','en proceso','aprobada','rechazado')),
  fecha_registro TIMESTAMPTZ NOT NULL DEFAULT now(), actualizado_por INT REFERENCES usuarios(id)
 );
