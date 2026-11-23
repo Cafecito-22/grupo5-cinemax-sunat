@@ -2,6 +2,12 @@
 
 Portal de contribuyentes, revisión de solicitudes y fiscalización. Frontend React + Bootstrap en Vercel; API Node.js en Render; PostgreSQL compartido en Neon e imágenes privadas en Object Storage compatible con S3.
 
+## Enlaces publicados
+
+- Contribuyentes: https://grupo5-sunat-cliente.vercel.app
+- Gestión: https://grupo5-sunat-gestion.vercel.app
+- Estado de la API: https://grupo5-facturacion-api.onrender.com/api/salud
+
 Esta entrega contiene únicamente la aplicación SUNAT. El módulo de ventas y la interfaz CineMax los desarrolla el otro integrante. Las tablas compartidas se conservan para relacionar las solicitudes aprobadas con los comprobantes.
 
 ## Servicios separados
