@@ -1,3 +1,7 @@
+ALTER TABLE usuarios ADD COLUMN IF NOT EXISTS session_version INT NOT NULL DEFAULT 0;
+ALTER TABLE usuarios ADD COLUMN IF NOT EXISTS turno_nombre TEXT;
+ALTER TABLE usuarios ADD COLUMN IF NOT EXISTS turno_inicio TIME;
+ALTER TABLE usuarios ADD COLUMN IF NOT EXISTS turno_fin TIME;
 ALTER TABLE solicitudes_clave_sol ADD COLUMN IF NOT EXISTS codigo_seguimiento TEXT GENERATED ALWAYS AS ('SOL-' || lpad(id::text,6,'0')) STORED;
 ALTER TABLE solicitudes_clave_sol ADD COLUMN IF NOT EXISTS eliminado BOOLEAN NOT NULL DEFAULT false;
 ALTER TABLE solicitudes_clave_sol ADD COLUMN IF NOT EXISTS actualizado_en TIMESTAMPTZ NOT NULL DEFAULT now();
@@ -17,7 +21,3 @@ CREATE INDEX IF NOT EXISTS sol_usuario_estado ON solicitudes_clave_sol(id_usuari
 CREATE INDEX IF NOT EXISTS compras_sol ON compras_entradas_cine(id_clave_sol);
 CREATE INDEX IF NOT EXISTS observaciones_sol ON observaciones(id_clave_sol);
 UPDATE usuarios SET turno_nombre='Completo',turno_inicio='00:00',turno_fin='23:59' WHERE id IN (SELECT id_usuario FROM usuario_rol WHERE modulo='sunat' AND rol='empleado') AND turno_inicio IS NULL;
-ALTER TABLE usuarios ADD COLUMN IF NOT EXISTS session_version INT NOT NULL DEFAULT 0;
-ALTER TABLE usuarios ADD COLUMN IF NOT EXISTS turno_nombre TEXT;
-ALTER TABLE usuarios ADD COLUMN IF NOT EXISTS turno_inicio TIME;
-ALTER TABLE usuarios ADD COLUMN IF NOT EXISTS turno_fin TIME;

@@ -1,5 +1,5 @@
 {
-  "fecha": "2026-11-23T17:59:58.799Z",
+  "fecha": "2026-11-23T21:58:54.256Z",
   "entorno": "QA aislado de producción",
   "peticiones": 47,
   "aserciones": 62,
@@ -8,7 +8,7 @@
     {
       "nombre": "01 · Salud de API y base de datos",
       "estado": 200,
-      "tiempo_ms": 792,
+      "tiempo_ms": 890,
       "pruebas": [
         {
           "nombre": "HTTP 200",
@@ -23,7 +23,7 @@
     {
       "nombre": "02 · Registrar contribuyente",
       "estado": 201,
-      "tiempo_ms": 897,
+      "tiempo_ms": 1379,
       "pruebas": [
         {
           "nombre": "HTTP 201",
@@ -38,7 +38,7 @@
     {
       "nombre": "03 · Rechazar correo duplicado",
       "estado": 409,
-      "tiempo_ms": 540,
+      "tiempo_ms": 950,
       "pruebas": [
         {
           "nombre": "HTTP 409",
@@ -49,7 +49,7 @@
     {
       "nombre": "04 · Sesión y roles",
       "estado": 200,
-      "tiempo_ms": 216,
+      "tiempo_ms": 230,
       "pruebas": [
         {
           "nombre": "HTTP 200",
@@ -64,7 +64,7 @@
     {
       "nombre": "05 · Registrar solicitud",
       "estado": 201,
-      "tiempo_ms": 748,
+      "tiempo_ms": 775,
       "pruebas": [
         {
           "nombre": "HTTP 201",
@@ -79,7 +79,7 @@
     {
       "nombre": "06 · Corregir solicitud propia",
       "estado": 200,
-      "tiempo_ms": 748,
+      "tiempo_ms": 771,
       "pruebas": [
         {
           "nombre": "HTTP 200",
@@ -90,7 +90,7 @@
     {
       "nombre": "07 · Consultar historial",
       "estado": 200,
-      "tiempo_ms": 429,
+      "tiempo_ms": 443,
       "pruebas": [
         {
           "nombre": "HTTP 200",
@@ -105,7 +105,7 @@
     {
       "nombre": "08 · No emitir token sin aprobación",
       "estado": 403,
-      "tiempo_ms": 322,
+      "tiempo_ms": 332,
       "pruebas": [
         {
           "nombre": "HTTP 403",
@@ -116,7 +116,7 @@
     {
       "nombre": "09 · Login trabajador",
       "estado": 200,
-      "tiempo_ms": 536,
+      "tiempo_ms": 929,
       "pruebas": [
         {
           "nombre": "HTTP 200",
@@ -127,7 +127,7 @@
     {
       "nombre": "10 · Trabajador no crea solicitudes",
       "estado": 403,
-      "tiempo_ms": 216,
+      "tiempo_ms": 228,
       "pruebas": [
         {
           "nombre": "HTTP 403",
@@ -138,7 +138,7 @@
     {
       "nombre": "11 · Revisar solicitud",
       "estado": 200,
-      "tiempo_ms": 957,
+      "tiempo_ms": 998,
       "pruebas": [
         {
           "nombre": "HTTP 200",
@@ -149,7 +149,7 @@
     {
       "nombre": "12 · Aprobar solicitud",
       "estado": 200,
-      "tiempo_ms": 854,
+      "tiempo_ms": 879,
       "pruebas": [
         {
           "nombre": "HTTP 200",
@@ -160,7 +160,7 @@
     {
       "nombre": "13 · Cliente no cambia identidad aprobada",
       "estado": 409,
-      "tiempo_ms": 532,
+      "tiempo_ms": 551,
       "pruebas": [
         {
           "nombre": "HTTP 409",
@@ -171,7 +171,7 @@
     {
       "nombre": "14 · Generar token con SOL aprobada",
       "estado": 201,
-      "tiempo_ms": 428,
+      "tiempo_ms": 443,
       "pruebas": [
         {
           "nombre": "HTTP 201",
@@ -182,7 +182,7 @@
     {
       "nombre": "15 · Validar token desde otro servidor",
       "estado": 200,
-      "tiempo_ms": 324,
+      "tiempo_ms": 333,
       "pruebas": [
         {
           "nombre": "HTTP 200",
@@ -197,7 +197,7 @@
     {
       "nombre": "16 · Rechazar token de sesión como token de integración",
       "estado": 401,
-      "tiempo_ms": 2,
+      "tiempo_ms": 5,
       "pruebas": [
         {
           "nombre": "HTTP 401",
@@ -208,7 +208,7 @@
     {
       "nombre": "17 · Registrar observación",
       "estado": 201,
-      "tiempo_ms": 428,
+      "tiempo_ms": 440,
       "pruebas": [
         {
           "nombre": "HTTP 201",
@@ -219,7 +219,7 @@
     {
       "nombre": "18 · Cliente ve sus observaciones",
       "estado": 200,
-      "tiempo_ms": 321,
+      "tiempo_ms": 330,
       "pruebas": [
         {
           "nombre": "HTTP 200",
@@ -234,7 +234,7 @@
     {
       "nombre": "19 · Cliente no fiscaliza",
       "estado": 403,
-      "tiempo_ms": 214,
+      "tiempo_ms": 221,
       "pruebas": [
         {
           "nombre": "HTTP 403",
@@ -245,7 +245,7 @@
     {
       "nombre": "20 · SUM por contribuyente",
       "estado": 200,
-      "tiempo_ms": 326,
+      "tiempo_ms": 333,
       "pruebas": [
         {
           "nombre": "HTTP 200",
@@ -260,7 +260,7 @@
     {
       "nombre": "21 · Comprobantes recibidos",
       "estado": 200,
-      "tiempo_ms": 322,
+      "tiempo_ms": 331,
       "pruebas": [
         {
           "nombre": "HTTP 200",
@@ -271,7 +271,7 @@
     {
       "nombre": "22 · Enviar consulta",
       "estado": 201,
-      "tiempo_ms": 323,
+      "tiempo_ms": 335,
       "pruebas": [
         {
           "nombre": "HTTP 201",
@@ -282,7 +282,7 @@
     {
       "nombre": "23 · Responder consulta",
       "estado": 200,
-      "tiempo_ms": 321,
+      "tiempo_ms": 333,
       "pruebas": [
         {
           "nombre": "HTTP 200",
@@ -293,7 +293,7 @@
     {
       "nombre": "24 · Recuperar respuesta en la cuenta",
       "estado": 200,
-      "tiempo_ms": 321,
+      "tiempo_ms": 331,
       "pruebas": [
         {
           "nombre": "HTTP 200",
@@ -308,7 +308,7 @@
     {
       "nombre": "25 · Sin sesión no hay datos",
       "estado": 401,
-      "tiempo_ms": 2,
+      "tiempo_ms": 12,
       "pruebas": [
         {
           "nombre": "HTTP 401",
@@ -319,7 +319,7 @@
     {
       "nombre": "26 · Revocar acceso temporal",
       "estado": 200,
-      "tiempo_ms": 322,
+      "tiempo_ms": 333,
       "pruebas": [
         {
           "nombre": "HTTP 200",
@@ -330,7 +330,7 @@
     {
       "nombre": "27 · Token revocado no se acepta",
       "estado": 403,
-      "tiempo_ms": 319,
+      "tiempo_ms": 330,
       "pruebas": [
         {
           "nombre": "HTTP 403",
@@ -341,7 +341,7 @@
     {
       "nombre": "28 · Login de jefatura",
       "estado": 200,
-      "tiempo_ms": 540,
+      "tiempo_ms": 1221,
       "pruebas": [
         {
           "nombre": "HTTP 200",
@@ -352,7 +352,7 @@
     {
       "nombre": "29 · Usuarios sin exponer contraseñas",
       "estado": 200,
-      "tiempo_ms": 321,
+      "tiempo_ms": 337,
       "pruebas": [
         {
           "nombre": "HTTP 200",
@@ -367,7 +367,7 @@
     {
       "nombre": "30 · Cliente no administra usuarios",
       "estado": 403,
-      "tiempo_ms": 215,
+      "tiempo_ms": 222,
       "pruebas": [
         {
           "nombre": "HTTP 403",
@@ -378,7 +378,7 @@
     {
       "nombre": "31 · Comprobar aislamiento de solicitudes",
       "estado": 200,
-      "tiempo_ms": 320,
+      "tiempo_ms": 330,
       "pruebas": [
         {
           "nombre": "HTTP 200",
@@ -393,7 +393,7 @@
     {
       "nombre": "32 · El módulo CineMax fue retirado",
       "estado": 404,
-      "tiempo_ms": 214,
+      "tiempo_ms": 222,
       "pruebas": [
         {
           "nombre": "HTTP 404",
@@ -404,7 +404,7 @@
     {
       "nombre": "33 · Cliente no aprueba solicitudes",
       "estado": 403,
-      "tiempo_ms": 214,
+      "tiempo_ms": 225,
       "pruebas": [
         {
           "nombre": "HTTP 403",
@@ -415,7 +415,7 @@
     {
       "nombre": "34 · Cliente no ve auditoría global",
       "estado": 403,
-      "tiempo_ms": 214,
+      "tiempo_ms": 222,
       "pruebas": [
         {
           "nombre": "HTTP 403",
@@ -426,7 +426,7 @@
     {
       "nombre": "35 · Jefatura ve auditoría",
       "estado": 200,
-      "tiempo_ms": 321,
+      "tiempo_ms": 334,
       "pruebas": [
         {
           "nombre": "HTTP 200",
@@ -437,7 +437,7 @@
     {
       "nombre": "36 · Rechazar contraseña incorrecta",
       "estado": 401,
-      "tiempo_ms": 330,
+      "tiempo_ms": 929,
       "pruebas": [
         {
           "nombre": "HTTP 401",
@@ -448,7 +448,7 @@
     {
       "nombre": "37 · Login del emisor compartido",
       "estado": 200,
-      "tiempo_ms": 541,
+      "tiempo_ms": 1048,
       "pruebas": [
         {
           "nombre": "HTTP 200",
@@ -459,7 +459,7 @@
     {
       "nombre": "38 · Obtener su SOL aprobada",
       "estado": 200,
-      "tiempo_ms": 320,
+      "tiempo_ms": 333,
       "pruebas": [
         {
           "nombre": "HTTP 200",
@@ -470,7 +470,7 @@
     {
       "nombre": "39 · Habilitar emisión del emisor",
       "estado": 201,
-      "tiempo_ms": 428,
+      "tiempo_ms": 441,
       "pruebas": [
         {
           "nombre": "HTTP 201",
@@ -481,7 +481,7 @@
     {
       "nombre": "40 · Vincular compra de la base compartida",
       "estado": 201,
-      "tiempo_ms": 1065,
+      "tiempo_ms": 1098,
       "pruebas": [
         {
           "nombre": "HTTP 201",
@@ -496,7 +496,7 @@
     {
       "nombre": "41 · Reintento no duplica comprobante",
       "estado": 200,
-      "tiempo_ms": 746,
+      "tiempo_ms": 766,
       "pruebas": [
         {
           "nombre": "HTTP 200",
@@ -511,7 +511,7 @@
     {
       "nombre": "42 · Emisor no accede a compra ajena",
       "estado": 404,
-      "tiempo_ms": 745,
+      "tiempo_ms": 771,
       "pruebas": [
         {
           "nombre": "HTTP 404",
@@ -522,7 +522,7 @@
     {
       "nombre": "43 · SUNAT ve el comprobante emitido",
       "estado": 200,
-      "tiempo_ms": 320,
+      "tiempo_ms": 329,
       "pruebas": [
         {
           "nombre": "HTTP 200",
@@ -537,7 +537,7 @@
     {
       "nombre": "44 · RUC inválido se rechaza",
       "estado": 400,
-      "tiempo_ms": 215,
+      "tiempo_ms": 227,
       "pruebas": [
         {
           "nombre": "HTTP 400",
@@ -548,7 +548,7 @@
     {
       "nombre": "45 · Registrar solicitud que se retirará",
       "estado": 201,
-      "tiempo_ms": 747,
+      "tiempo_ms": 762,
       "pruebas": [
         {
           "nombre": "HTTP 201",
@@ -559,7 +559,7 @@
     {
       "nombre": "46 · Retirar solicitud propia registrada",
       "estado": 200,
-      "tiempo_ms": 956,
+      "tiempo_ms": 976,
       "pruebas": [
         {
           "nombre": "HTTP 200",
@@ -570,7 +570,7 @@
     {
       "nombre": "47 · Comprobar retirada sin perder auditoría",
       "estado": 200,
-      "tiempo_ms": 320,
+      "tiempo_ms": 328,
       "pruebas": [
         {
           "nombre": "HTTP 200",

@@ -1,0 +1,32 @@
+{
+  "fecha": "2026-11-23T21:59:30.191128+00:00",
+  "estructura": [
+    "app_web_crm_node_api",
+    "app_web_crm_react_adm_emp",
+    "app_web_crm_react_cliente"
+  ],
+  "instalacion": {
+    "backend": "npm ci correcto",
+    "cliente": "npm ci correcto",
+    "gestion": "npm ci correcto"
+  },
+  "base": {
+    "instalacion_limpia": "correcta",
+    "migracion_repetible": "correcta",
+    "tablas": 11,
+    "roles_huerfanos": 0,
+    "solicitudes_huerfanas": 0
+  },
+  "backend": {
+    "unitarias": 3,
+    "postman_peticiones": 47,
+    "postman_aserciones": 62,
+    "fallos": 0
+  },
+  "correcciones": [
+    "Crear columnas de turno antes de actualizarlas",
+    "Puerto local frontend alineado con backend: 3000",
+    "Documentación, Postman y configuración Render dentro del backend",
+    "Imágenes originales dentro del frontend cliente"
+  ]
+}
