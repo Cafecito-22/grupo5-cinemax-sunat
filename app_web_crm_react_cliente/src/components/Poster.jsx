@@ -1,3 +1,0 @@
-import React,{useEffect,useState} from 'react';
-import {api} from '../api/client.js';
-export function Poster({pelicula}){const [url,setUrl]=useState(null);useEffect(()=>{let active=true;setUrl(null);if(pelicula.imagen_key)api('/peliculas/'+pelicula.id+'/imagen').then(r=>active&&setUrl(r.url)).catch(()=>{});return()=>{active=false;};},[pelicula.id,pelicula.imagen_key]);return <div className="poster">{(url||pelicula.poster_local)?<img className="poster-foto" src={url||pelicula.poster_local} alt={'Póster de '+pelicula.titulo}/>:<div className="poster-sin-imagen"><span>CineMax</span><strong>{pelicula.titulo}</strong></div>}</div>;}

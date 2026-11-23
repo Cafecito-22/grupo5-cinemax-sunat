@@ -1,0 +1,4 @@
+export const API=import.meta.env.VITE_API_URL||(import.meta.env.DEV?'http://localhost:3105/api':'https://grupo5-facturacion-api.onrender.com/api');
+let token=sessionStorage.getItem('sunat-token')||sessionStorage.getItem('grupo5-token');
+export const setToken=value=>{token=value;sessionStorage.removeItem('grupo5-token');if(value)sessionStorage.setItem('sunat-token',value);else sessionStorage.removeItem('sunat-token');};
+export async function api(path,method='GET',body){let r;try{r=await fetch(API+path,{method,headers:{'Content-Type':'application/json',...(token?{Authorization:'Bearer '+token}:{})},...(body?{body:JSON.stringify(body)}:{})});}catch{throw new Error('No se pudo conectar. Inténtalo nuevamente.');}let data;try{data=await r.json();}catch{throw new Error('El servicio está iniciando. Inténtalo nuevamente.');}if(!r.ok)throw new Error(data.error||'No se pudo completar la operación.');return data;}

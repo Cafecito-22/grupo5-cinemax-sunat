@@ -1,1 +1,18 @@
-{"name":"app_web_crm_react_cliente","private":true,"type":"module","scripts":{"dev":"vite --host 127.0.0.1 --port 5173","build":"vite build"},"dependencies":{"react":"^19.1.1","react-dom":"^19.1.1","react-router-dom":"^7.9.5","bootstrap":"^5.3.8"},"devDependencies":{"vite":"^7.2.2"}}
+{
+  "name": "sunat-contribuyente",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1 --port 5173",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-router-dom": "^7.9.5",
+    "bootstrap": "^5.3.8"
+  },
+  "devDependencies": {
+    "vite": "^7.2.2"
+  }
+}

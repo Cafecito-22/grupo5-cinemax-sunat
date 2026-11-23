@@ -1,7 +1,0 @@
-import React from 'react';
-import {FondoCine} from '../components/FondoCine.jsx';
-import {NavLink} from 'react-router-dom';
-import {useLoad} from '../hooks/useLoad.jsx';
-import {Loading} from '../components/Cargando.jsx';
-import {Poster} from '../components/Poster.jsx';
-export function Home(){const state=useLoad('/peliculas');return <><section className="hero"><FondoCine/><div className="contenedor hero-contenido"><p className="etiqueta-sala">Sala 4 · Estreno de la semana</p><h1>Vive la película más grande en la pantalla más grande</h1><p className="hero-texto">Compra tus entradas en minutos, elige tu asiento y disfruta el estreno en cualquiera de nuestras salas en Lima.</p><NavLink to="/cine/cartelera" className="boton boton-primario">Ver cartelera</NavLink></div></section><section className="seccion"><div className="contenedor"><h2>Próximos estrenos</h2><p className="subtitulo">Lista de horarios y fechas disponibles a partir de la próxima semana</p><Loading state={state}>{data=><div className="grid-peliculas">{data.filter(p=>p.estado==='proximamente'||['ventana','dos-caras','wish','no-respires'].includes(p.clave)).map(p=><article key={p.id} className="tarjeta-pelicula"><Poster pelicula={p}/><div className="info-pelicula"><h3>{p.titulo}</h3><p className="meta">{p.genero} · {p.clasificacion} · {p.duracion} min</p><span className="chip">2D</span><p className="funciones">{p.sala}</p><NavLink className="boton boton-secundario" to="/cine/cartelera">Ver cartelera</NavLink></div></article>)}</div>}</Loading></div></section></>;}
