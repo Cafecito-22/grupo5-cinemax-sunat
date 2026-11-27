@@ -1,3 +1,4 @@
+import {LoadingScene} from './Experience.jsx';
 import React,{useEffect,useState} from 'react';
 
 import {API,api} from '../api.js';
@@ -8,9 +9,9 @@ export const date=d=>d?new Intl.DateTimeFormat('es-PE',{dateStyle:'medium',timeS
 export const rol=u=>u?.roles?.find(r=>r.modulo==='sunat')?.rol;
 export const isStaff=u=>['empleado','administrador'].includes(rol(u));
 export function useLoad(path){const [state,set]=useState({loading:true,data:null,error:''});const [v,refresh]=useState(0);useEffect(()=>{let active=true;set(s=>({...s,loading:true,error:''}));api(path).then(data=>active&&set({loading:false,data,error:''})).catch(e=>active&&set({loading:false,data:null,error:e.message}));return()=>{active=false;};},[path,v]);return {...state,reload:()=>refresh(x=>x+1)};}
-export function ErrorMessage({text}){return text?<div className="alert alert-danger" role="alert">{text}</div>:null;}
-export function Notice({text}){return text?<div className="alert alert-success" role="status"><Icon name="check"/> {text}</div>:null;}
-export function Load({state,children}){return state.loading?<div className="loading-state" role="status"><span className="spinner-border spinner-border-sm"/> Cargando tus datos…</div>:state.error?<ErrorMessage text={state.error}/>:children(state.data);}
+export function ErrorMessage({text}){return text?<div className="alert alert-danger feedback-enter" role="alert">{text}</div>:null;}
+export function Notice({text}){return text?<div className="alert alert-success feedback-enter" role="status"><Icon name="check"/> {text}</div>:null;}
+export function Load({state,children}){return state.loading?<LoadingScene/>:state.error?<ErrorMessage text={state.error}/>:children(state.data);}
 export function Empty({text='Todavía no hay registros.'}){return <div className="empty-state"><Icon name="document" size={34}/><p>{text}</p></div>;}
 export function Asset({name,alt,...props}){const [error,setError]=useState(false);return error?<div className="asset-placeholder"><Icon name="shield" size={60}/></div>:<img src={API+'/publico/imagenes/'+name} alt={alt} onError={()=>setError(true)} {...props}/>;}
 export function Field({label,name,children,...props}){return <div className="field"><label htmlFor={'field-'+name}>{label}</label>{children||<input className="form-control" id={'field-'+name} name={name} required {...props}/>}</div>;}
