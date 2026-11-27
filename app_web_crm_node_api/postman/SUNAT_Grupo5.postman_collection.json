@@ -212,7 +212,7 @@
         },
         "body": {
           "mode": "raw",
-          "raw": "{\"razon_social\": \"Empresa QA {{run_id}}\", \"ruc\": \"20123456789\", \"representante\": \"Representante QA\", \"correo\": \"{{qa_correo}}\"}",
+          "raw": "{\"razon_social\": \"Empresa QA {{run_id}}\", \"ruc\": \"20123456789\", \"representante\": \"Representante QA\", \"correo\": \"{{qa_correo}}\", \"descripcion\": \"Emitir comprobantes y gestionar los trámites de mi empresa.\"}",
           "options": {
             "raw": {
               "language": "json"
@@ -227,7 +227,8 @@
             "type": "text/javascript",
             "exec": [
               "pm.test('HTTP 201',()=>pm.response.to.have.status(201));",
-              "const s=pm.response.json();pm.environment.set('sol_id',s.id);pm.test('Código y estado',()=>{pm.expect(s.codigo_seguimiento).match(/^SOL-/);pm.expect(s.estado).eq('registrado');});"
+              "const s=pm.response.json();pm.environment.set('sol_id',s.id);pm.test('Código y estado',()=>{pm.expect(s.codigo_seguimiento).match(/^SOL-/);pm.expect(s.estado).eq('registrado');});",
+              "pm.test('Motivo guardado',()=>pm.expect(pm.response.json().descripcion).to.eql('Emitir comprobantes y gestionar los trámites de mi empresa.'));"
             ]
           }
         }
@@ -1828,7 +1829,79 @@
           }
         }
       ]
+    },
+    {
+      "name": "48 · Ruta inexistente devuelve JSON 404",
+      "request": {
+        "method": "GET",
+        "url": "{{base_url}}/ruta-inexistente-prueba",
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{jefatura_token}}",
+              "type": "string"
+            }
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('HTTP 404',()=>pm.response.to.have.status(404));",
+              "pm.test('Mensaje de ruta inexistente',()=>pm.expect(pm.response.json().error).to.eql('Ruta no encontrada.'));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "49 · Imagen SUNAT disponible desde Storage",
+      "request": {
+        "method": "GET",
+        "url": "{{base_url}}/publico/imagenes/sunat-isotipo",
+        "auth": {
+          "type": "noauth"
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('HTTP 200',()=>pm.response.to.have.status(200));",
+              "pm.test('Contenido de imagen',()=>pm.expect(pm.response.headers.get('Content-Type')).to.match(/^image\\//));"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "50 · Imagen inexistente devuelve JSON 404",
+      "request": {
+        "method": "GET",
+        "url": "{{base_url}}/publico/imagenes/imagen-inexistente-prueba",
+        "auth": {
+          "type": "noauth"
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('HTTP 404',()=>pm.response.to.have.status(404));",
+              "pm.test('Imagen no encontrada',()=>pm.expect(pm.response.json().error).to.eql('Imagen no encontrada.'));"
+            ]
+          }
+        }
+      ]
     }
   ]
 }
-

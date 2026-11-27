@@ -1,0 +1,12 @@
+import {pool} from '../config/db.js';
+export const getSolicitudesQuery1=(values=[],parts=[],db=pool)=>db.query(`SELECT s.*,u.nombre titular FROM solicitudes_clave_sol s JOIN usuarios u ON u.id=s.id_usuario WHERE s.eliminado=false ${parts[0]} ORDER BY s.id DESC LIMIT 300`,values);
+export const postSolicitudesQuery1=(values=[],parts=[],db=pool)=>db.query("SELECT 1 FROM usuarios u JOIN usuario_rol r ON r.id_usuario=u.id WHERE u.id=$1 AND u.activo=true AND r.modulo='sunat'",values);
+export const postSolicitudesQuery2=(values=[],parts=[],db=pool)=>db.query('INSERT INTO solicitudes_clave_sol(id_usuario,razon_social,ruc,representante,correo,descripcion) VALUES($1,$2,$3,$4,$5,$6) RETURNING *',values);
+export const putSolicitudesIdQuery1=(values=[],parts=[],db=pool)=>db.query('UPDATE solicitudes_clave_sol SET razon_social=$1,ruc=$2,representante=$3,correo=$4,descripcion=$5,actualizado_por=$6,actualizado_en=now() WHERE id=$7 RETURNING *',values);
+export const deleteSolicitudesIdQuery1=(values=[],parts=[],db=pool)=>db.query('SELECT 1 FROM compras_entradas_cine WHERE id_clave_sol=$1 LIMIT 1',values);
+export const deleteSolicitudesIdQuery2=(values=[],parts=[],db=pool)=>db.query('UPDATE solicitudes_clave_sol SET eliminado=true,actualizado_por=$1,actualizado_en=now() WHERE id=$2',values);
+export const deleteSolicitudesIdQuery3=(values=[],parts=[],db=pool)=>db.query('UPDATE integracion_tokens SET revocado=true WHERE id_clave_sol=$1',values);
+export const patchSolicitudesIdEstadoQuery1=(values=[],parts=[],db=pool)=>db.query('UPDATE solicitudes_clave_sol SET estado=$1,actualizado_por=$2,actualizado_en=now() WHERE id=$3',values);
+export const patchSolicitudesIdEstadoQuery2=(values=[],parts=[],db=pool)=>db.query('UPDATE integracion_tokens SET revocado=true WHERE id_clave_sol=$1',values);
+export const patchSolicitudesIdEstadoQuery3=(values=[],parts=[],db=pool)=>db.query('INSERT INTO observaciones(id_clave_sol,id_usuario,detalle) VALUES($1,$2,$3)',values);
+export const getSolicitudesIdHistorialQuery1=(values=[],parts=[],db=pool)=>db.query("SELECT a.accion,a.fecha,a.detalle,u.nombre actor FROM auditoria a LEFT JOIN usuarios u ON u.id=a.id_usuario WHERE a.entidad='solicitud' AND a.entidad_id=$1 ORDER BY a.fecha",values);
